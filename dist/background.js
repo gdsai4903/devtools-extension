@@ -1,0 +1,1 @@
+(()=>{"use strict";chrome.webRequest.onCompleted.addListener((e=>{chrome.storage.local.get({logs:[]},(s=>{const o=s.logs;o.push(e),chrome.storage.local.set({logs:o})}))}),{urls:["<all_urls>"]})})();
