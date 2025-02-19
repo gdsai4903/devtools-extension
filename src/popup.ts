@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   chrome.storage.local.get("logs", (result) => {
     result.logs.forEach((log: any) => {
       const li = document.createElement("li");
-      li.textContent = `${log.method} ${log.url} - ${log.timeStamp}`;
-      logList.appendChild(li);
+      li.textContent = `${log.method} ${log.url} - ${log.timeStamp} ${log.payload}`;
+      logList.prepend(li);
     });
   });
 
