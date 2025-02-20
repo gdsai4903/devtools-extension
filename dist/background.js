@@ -1,1 +1,1 @@
-(()=>{"use strict";chrome.webRequest.onCompleted.addListener((e=>{chrome.storage.local.get({logs:[]},(s=>{const o=s.logs;o.push(e),chrome.storage.local.set({logs:o})}))}),{urls:["<all_urls>"]})})();
+(()=>{"use strict";chrome.webRequest.onBeforeRequest.addListener((e=>{chrome.storage.local.get({logs:[]},(o=>{const t=o.logs||[];t.push({method:e.method,url:e.url,timeStamp:(new Date).toISOString(),payload:e.requestBody?JSON.stringify(e.requestBody):"No Payload"}),chrome.storage.local.set({logs:t})}))}),{urls:["<all_urls>"]},["requestBody"])})();
